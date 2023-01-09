@@ -71,4 +71,20 @@ $(function(){
 	          $("body").css("-o-user-select","auto");
 	         $("body").css("user-select","auto");
         }
+
+
+    var imgShow = 3;
+    var minIndex = imgShow - 1;
+    var maxIndex = Math.ceil($('.mini-img-wraper').length/3)-1;
+    var curIndex = 0;
+
+
+    initSlider();
+    function initSlider(){
+    	var amt = $('.mini-img-wraper').length * 33.3;
+    	var elScroll = $('.nav-galeria-wraper');
+    	var elSingle = $('.mini-img-wraper');
+    	elScroll.css('widht', amt+'%');
+    	elSingle.css('width', 33.3*(100/amt)+'%');
+    }
 })
