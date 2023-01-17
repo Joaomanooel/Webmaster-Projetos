@@ -115,4 +115,69 @@ $(function(){
     		$('html,body').animate({'scrollTop':$('#contato').offset().top});
     		return false;
     	})
+	/*
+    	var directory = '/Danki Code- Projetos/Webmaster-Projetos/projeto_05'
+
+    	$('[goto=contato]').click(function(){
+    		location.href=directory+'index.html?contato';
+    		return false;
+    	})
+
+    	checkUrl();
+
+    	function checkUrl(){
+    		var url = location.href.split('/');
+    		var curPage = [url.length-1].split('?');
+
+    		if (curPage [1] != undefined && curPage[1] == 'contato'){
+    			$('header nav a').css('color','black');
+    			$('footer nav a').css('color','white');
+    			$('[goto=contato]').css('color','#EB2D2D');
+    			$('html,body').animate({'scrollTop':$('#contato').offset().top});
+    		}
+
+    	}
+*/
+
+    	$('.mobile').click(function(){
+    		$(this).find('ul').slideToggle();
+    	})
+
+    	/*
+		Sistem de navegação
+    	*/
+
+    	var amtDepoimento = $('.depoimento-single p').length;
+    	var puIndex = 0;
+
+    	iniciarDepoimento();
+    	navegarDepoimento();
+
+    	function iniciarDepoimento(){
+    		$('.depoimento-single p').hide();
+    		$('.depoimento-single p').eq(0).show();
+    	}
+
+
+    	function navegarDepoimento(){
+    		$('[next]').click(function(){
+    			 
+    				puIndex++;
+    				if (puIndex >= amtDepoimento)
+    				 puIndex = 0;	
+    				$('.depoimento-single p').hide();
+    				$('.depoimento-single p').eq(puIndex).show();
+
+    			
+    		})
+
+    		$('[prev]').click(function(){
+    				puIndex--;
+    				if (puIndex >= 0)
+    				 puIndex = amtDepoimento-1;	
+    				$('.depoimento-single p').hide();
+    				$('.depoimento-single p').eq(puIndex).show();
+    		})
+    	}
+
 })
